@@ -1,0 +1,106 @@
+Create a basic calculator using HTML, CSS, and JavaScript with the functionality of add, 
+subtract, multiply and divide. Use the following picture for reference. 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <style>
+        /* Style for the calculator container */
+        .calculator {
+            max-width: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        /* Style for the calculator display */
+        .display {
+            font-size: 24px;
+            text-align: right;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        /* Style for the calculator buttons */
+        .button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <button class="button" onclick="clearDisplay()">AC</button>
+        <button class="button" onclick="appendToDisplay('7')">7</button>
+        <button class="button" onclick="appendToDisplay('8')">8</button>
+        <button class="button" onclick="appendToDisplay('9')">9</button>
+        <button class="button" onclick="appendToDisplay('+')">+</button>
+        <button class="button" onclick="appendToDisplay('4')">4</button>
+        <button class="button" onclick="appendToDisplay('5')">5</button>
+        <button class="button" onclick="appendToDisplay('6')">6</button>
+        <button class="button" onclick="appendToDisplay('-')">-</button>
+        <button class="button" onclick="appendToDisplay('1')">1</button>
+        <button class="button" onclick="appendToDisplay('2')">2</button>
+        <button class="button" onclick="appendToDisplay('3')">3</button>
+        <button class="button" onclick="appendToDisplay('*')">*</button>
+        <button class="button" onclick="appendToDisplay('0')">0</button>
+        <button class="button" onclick="appendToDisplay('.')">.</button>
+        <button class="button" onclick="calculateResult()">=</button>
+        <button class="button" onclick="appendToDisplay('/')">/</button>
+    </div>
+
+    <script>
+        let currentInput = "";
+        let result = 0;
+
+        function appendToDisplay(value) {
+            currentInput += value;
+            document.getElementById("display").textContent = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = "";
+            result = 0;
+            document.getElementById("display").textContent = "0";
+        }
+
+        function calculateResult() {
+            try {
+                result = eval(currentInput);
+                document.getElementById("display").textContent = result;
+                currentInput = result.toString();
+            } catch (error) {
+                document.getElementById("display").textContent = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+// Css Code -
+
+body{
+  padding: 25px;
+}
+.title {
+	color: black;
+}
+
+
+// java Script 
+
+function showTime() {
+	document.getElementById('currentTime').innerHTML = new Date().toUTCString();
+}
+showTime();
+setInterval(function () {
+	showTime();
+}, 1000);
+
